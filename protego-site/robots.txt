@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /privacidad.html
+Disallow: /terminos.html
+Disallow: /cookies.html
+
+Sitemap: https://protego-consulting.com/sitemap.xml

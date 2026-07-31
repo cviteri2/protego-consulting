@@ -84,17 +84,12 @@
           <h2 style="font-size:1.2rem; margin-bottom:.3rem;">Diagnóstico inicial de 60 minutos</h2>
           <p style="font-size:.9rem; margin-bottom:1.5rem;">Sin costo. Revisamos su situación frente a la LOPDP e identificamos brechas críticas.</p>
 
-          <!--
-            INSTRUCCIONES PARA CÉSAR:
-            Reemplaza este formulario de ejemplo por el embed real de CognitoForms:
-            1. Crea el formulario en https://www.cognitoforms.com con los campos que necesites.
-            2. Cognito te dará un <script> de embed — pégalo aquí dentro de #cognito-embed.
-            3. Si prefieres no usar CognitoForms, este formulario también puede apuntar a
-               Formspree (https://formspree.io) cambiando el atributo "action" por tu endpoint,
-               y el method ya está listo como POST.
-          -->
-          <div id="cognito-embed">
-            <form action="https://formspree.io/f/mvzenqoa" method="POST">
+          <!-- Formulario conectado a Formspree vía AJAX: el envío se queda en la misma página,
+               sin redirigir a formspree.io. Ver renderSuccess/renderFormError al final del archivo. -->
+          <div id="form-error-box" class="form-error-box"></div>
+
+          <div id="form-wrapper">
+            <form id="contact-form" action="https://formspree.io/f/mvzenqoa" method="POST">
               <div class="field-row">
                 <div class="field">
                   <label for="nombre">Nombre completo</label>
@@ -129,8 +124,20 @@
                 <label for="mensaje">Cuéntenos brevemente su situación</label>
                 <textarea id="mensaje" name="mensaje" rows="4"></textarea>
               </div>
-              <button type="submit" class="btn btn-gold btn-block">Solicitar diagnóstico</button>
+              <button type="submit" class="btn btn-gold btn-block" data-fs-submit-btn>Solicitar diagnóstico</button>
             </form>
+          </div>
+
+          <div id="form-success-state" style="display:none; text-align:center; padding:.5rem 0;">
+            <div class="form-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2 style="font-size:1.2rem; margin-bottom:.5rem;">¡Gracias!</h2>
+            <p style="font-size:.92rem; color:var(--slate); max-width:34ch; margin:0 auto 1.4rem;">Recibimos su solicitud. Nuestro equipo se pondrá en contacto en menos de 24 horas hábiles para coordinar su diagnóstico.</p>
+            <a href="https://wa.me/593993355226?text=Hola%20Protego%20Consulting%2C%20acabo%20de%20solicitar%20un%20diagn%C3%B3stico%20desde%20el%20sitio%20web" target="_blank" rel="noopener" class="btn btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.3.5 1.8.6.8.2 1.4.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3C8.4 21.6 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.2-8.4 8.2z"/></svg>
+              ¿Es urgente? Escríbanos por WhatsApp
+            </a>
           </div>
         </div>
       </div>
@@ -207,5 +214,37 @@
 </div>
 
 <script src="js/main.js"></script>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', {
+    formElement: '#contact-form',
+    formId: 'mvzenqoa',
+    disable: function (ctx) {
+      var btn = ctx.form.querySelector('[data-fs-submit-btn]');
+      if (btn) { btn.dataset.originalText = btn.textContent; btn.textContent = 'Enviando…'; }
+    },
+    enable: function (ctx) {
+      var btn = ctx.form.querySelector('[data-fs-submit-btn]');
+      if (btn && btn.dataset.originalText) { btn.textContent = btn.dataset.originalText; }
+    },
+    renderSuccess: function () {
+      var wrapper = document.getElementById('form-wrapper');
+      var success = document.getElementById('form-success-state');
+      var errorBox = document.getElementById('form-error-box');
+      if (wrapper) wrapper.style.display = 'none';
+      if (success) success.style.display = 'block';
+      if (errorBox) errorBox.classList.remove('visible');
+    },
+    renderFormError: function () {
+      var errorBox = document.getElementById('form-error-box');
+      if (errorBox) {
+        errorBox.textContent = 'No pudimos enviar el formulario. Por favor intente de nuevo o escríbanos directo por WhatsApp.';
+        errorBox.classList.add('visible');
+      }
+    }
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>

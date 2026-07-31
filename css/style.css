@@ -280,6 +280,16 @@ section{ padding: var(--gap-xl) 0; position:relative; }
 .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--blue); border-color:var(--blue); }
 .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 @media (max-width:560px){ .field-row{ grid-template-columns:1fr; } }
+.form-success-icon{
+  width:56px; height:56px; border-radius:50%; background:var(--navy);
+  display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;
+}
+.form-success-icon svg{ width:26px; height:26px; }
+.form-error-box{
+  display:none; background:#FDECEC; color:#B3261E; border:1px solid #F5C6C6;
+  padding:.8rem 1rem; border-radius:var(--radius-sm); font-size:.85rem; margin-bottom:1.2rem;
+}
+.form-error-box.visible{ display:block; }
 
 /* ---------- Contacto: tarjetas de info ---------- */
 .contact-info{ display:grid; gap:1.1rem; }

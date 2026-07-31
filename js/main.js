@@ -85,4 +85,25 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
+
+  /* Banner de consentimiento de cookies */
+  var cookieBanner = document.querySelector('.cookie-banner');
+  if (cookieBanner) {
+    var consent = null;
+    try { consent = localStorage.getItem('protego_cookie_consent'); } catch (e) {}
+    if (!consent) {
+      setTimeout(function () { cookieBanner.classList.add('visible'); }, 600);
+    }
+    function resolveCookieBanner(choice) {
+      try {
+        localStorage.setItem('protego_cookie_consent', choice);
+        localStorage.setItem('protego_cookie_consent_date', new Date().toISOString());
+      } catch (e) {}
+      cookieBanner.classList.remove('visible');
+    }
+    var acceptBtn = cookieBanner.querySelector('[data-cookie-accept]');
+    var rejectBtn = cookieBanner.querySelector('[data-cookie-reject]');
+    if (acceptBtn) acceptBtn.addEventListener('click', function () { resolveCookieBanner('accepted'); });
+    if (rejectBtn) rejectBtn.addEventListener('click', function () { resolveCookieBanner('essential_only'); });
+  }
 });

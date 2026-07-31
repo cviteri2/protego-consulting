@@ -315,13 +315,30 @@ section{ padding: var(--gap-xl) 0; position:relative; }
 /* ---------- Footer ---------- */
 .site-footer{ padding:4rem 0 2rem; }
 .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:2.5rem; margin-bottom:3rem; }
-@media (max-width:820px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
-@media (max-width:520px){ .footer-grid{ grid-template-columns:1fr; } }
 .footer-grid h4{ color:#fff; font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:1.1rem; font-family:var(--font-mono); }
 .footer-grid ul{ list-style:none; padding:0; margin:0; display:grid; gap:.6rem; }
 .footer-grid ul a{ color:#B8CADA; font-size:.92rem; }
 .footer-grid ul a:hover{ color:var(--gold); }
 .footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding-top:1.6rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:.82rem; color:#8FA7BC; }
+.footer-grid{ grid-template-columns:1.2fr 1fr 1fr 1fr 1fr; }
+@media (max-width:900px){ .footer-grid{ grid-template-columns:1fr 1fr 1fr; } }
+@media (max-width:620px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:420px){ .footer-grid{ grid-template-columns:1fr; } }
+
+/* ---------- Banner de cookies ---------- */
+.cookie-banner{
+  position:fixed; left:0; right:0; bottom:0; z-index:300;
+  background:var(--navy-deep); color:#DCE7EF;
+  padding:1.2rem 1.6rem; box-shadow:0 -8px 24px -8px rgba(0,0,0,.45);
+  display:flex; align-items:center; justify-content:center; gap:1.5rem; flex-wrap:wrap;
+  transform:translateY(110%); transition:transform .35s ease;
+}
+.cookie-banner.visible{ transform:translateY(0); }
+.cookie-banner p{ margin:0; font-size:.88rem; max-width:640px; color:#B8CADA; }
+.cookie-banner p a{ color:var(--gold); }
+.cookie-banner .cookie-actions{ display:flex; gap:.7rem; flex-wrap:wrap; flex-shrink:0; }
+.cookie-banner .btn{ padding:.6rem 1.2rem; font-size:.85rem; }
+@media (max-width:620px){ .cookie-banner{ flex-direction:column; text-align:center; padding:1.4rem 1.2rem; } }
 
 /* ---------- WhatsApp flotante ---------- */
 .wa-float{

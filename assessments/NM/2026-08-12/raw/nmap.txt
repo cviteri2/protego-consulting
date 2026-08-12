@@ -1,0 +1,78 @@
+# Nmap 7.94SVN scan initiated Wed Aug 12 23:49:59 2026 as: nmap -Pn -sV -T4 --top-ports 1000 -oN assessments/NM/2026-08-12/raw/nmap.txt nuevomundo.edu.ec
+Nmap scan report for nuevomundo.edu.ec (66.231.64.204)
+Host is up (0.00049s latency).
+rDNS record for 66.231.64.204: napo.ecuahosting.net
+Not shown: 998 filtered tcp ports (no-response)
+PORT    STATE SERVICE   VERSION
+80/tcp  open  ssl/http
+443/tcp open  ssl/https
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.94SVN%T=SSL%I=7%D=8/12%Time=6A7D06D5%P=x86_64-pc-linux-g
+SF:nu%r(GetRequest,97,"HTTP/1\.1\x20426\x20Upgrade\x20Required\r\ncontent-
+SF:length:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20
+SF:Aug\x202026\x2023:50:44\x20GMT\r\nconnection:\x20close\r\n\r\nUpgrade\x
+SF:20Required")%r(HTTPOptions,97,"HTTP/1\.1\x20426\x20Upgrade\x20Required\
+SF:r\ncontent-length:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20Wed
+SF:,\x2012\x20Aug\x202026\x2023:50:45\x20GMT\r\nconnection:\x20close\r\n\r
+SF:\nUpgrade\x20Required")%r(RTSPRequest,8D,"HTTP/1\.1\x20400\x20Bad\x20Re
+SF:quest\r\ncontent-length:\x2011\r\ncontent-type:\x20text/plain\r\ndate:\
+SF:x20Wed,\x2012\x20Aug\x202026\x2023:50:46\x20GMT\r\nconnection:\x20close
+SF:\r\n\r\nBad\x20Request")%r(DNSVersionBindReqTCP,8D,"HTTP/1\.1\x20400\x2
+SF:0Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20text/plain
+SF:\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:52\x20GMT\r\nconnection
+SF::\x20close\r\n\r\nBad\x20Request")%r(DNSStatusRequestTCP,8D,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20t
+SF:ext/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:53\x20GMT\r\nc
+SF:onnection:\x20close\r\n\r\nBad\x20Request")%r(Help,8D,"HTTP/1\.1\x20400
+SF:\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20text/pl
+SF:ain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:54\x20GMT\r\nconnect
+SF:ion:\x20close\r\n\r\nBad\x20Request")%r(SSLSessionReq,8D,"HTTP/1\.1\x20
+SF:400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20text
+SF:/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:55\x20GMT\r\nconn
+SF:ection:\x20close\r\n\r\nBad\x20Request")%r(TerminalServerCookie,8D,"HTT
+SF:P/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-typ
+SF:e:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:56\x20G
+SF:MT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(TLSSessionReq,8D,"
+SF:HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-
+SF:type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:58\x
+SF:20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(Kerberos,8D,"HT
+SF:TP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-ty
+SF:pe:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:59\x20
+SF:GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.94SVN%T=SSL%I=7%D=8/12%Time=6A7D06BB%P=x86_64-pc-linux-
+SF:gnu%r(GetRequest,97,"HTTP/1\.1\x20426\x20Upgrade\x20Required\r\ncontent
+SF:-length:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x2
+SF:0Aug\x202026\x2023:50:18\x20GMT\r\nconnection:\x20close\r\n\r\nUpgrade\
+SF:x20Required")%r(HTTPOptions,97,"HTTP/1\.1\x20426\x20Upgrade\x20Required
+SF:\r\ncontent-length:\x2016\r\ncontent-type:\x20text/plain\r\ndate:\x20We
+SF:d,\x2012\x20Aug\x202026\x2023:50:19\x20GMT\r\nconnection:\x20close\r\n\
+SF:r\nUpgrade\x20Required")%r(FourOhFourRequest,97,"HTTP/1\.1\x20426\x20Up
+SF:grade\x20Required\r\ncontent-length:\x2016\r\ncontent-type:\x20text/pla
+SF:in\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:20\x20GMT\r\nconnecti
+SF:on:\x20close\r\n\r\nUpgrade\x20Required")%r(tor-versions,8D,"HTTP/1\.1\
+SF:x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20t
+SF:ext/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:21\x20GMT\r\nc
+SF:onnection:\x20close\r\n\r\nBad\x20Request")%r(RTSPRequest,8D,"HTTP/1\.1
+SF:\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent-type:\x20
+SF:text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:27\x20GMT\r\n
+SF:connection:\x20close\r\n\r\nBad\x20Request")%r(DNSVersionBindReqTCP,8D,
+SF:"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncontent
+SF:-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:33\
+SF:x20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(DNSStatusReque
+SF:stTCP,8D,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r
+SF:\ncontent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x20
+SF:23:50:34\x20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(Help,
+SF:8D,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\ncont
+SF:ent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:50:
+SF:35\x20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(SSLSessionR
+SF:eq,8D,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\x2011\r\nc
+SF:ontent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202026\x2023:
+SF:50:36\x20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request")%r(Terminal
+SF:ServerCookie,8D,"HTTP/1\.1\x20400\x20Bad\x20Request\r\ncontent-length:\
+SF:x2011\r\ncontent-type:\x20text/plain\r\ndate:\x20Wed,\x2012\x20Aug\x202
+SF:026\x2023:50:37\x20GMT\r\nconnection:\x20close\r\n\r\nBad\x20Request");
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug 12 23:51:47 2026 -- 1 IP address (1 host up) scanned in 107.94 seconds

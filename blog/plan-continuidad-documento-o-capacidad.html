@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Su plan de continuidad, ¿es un documento o una capacidad real? | Blog Protego Consulting</title>
+<meta name="description" content="Casi todas las empresas tienen un Plan de Continuidad de Negocio archivado que nunca se ha probado. La diferencia entre tener un documento y tener una capacidad real de continuidad.">
+<link rel="icon" type="image/png" href="../assets/logos/favicon-512.png">
+<meta property="og:title" content="Su plan de continuidad, ¿es un documento o una capacidad real?">
+<meta property="og:description" content="Las tres preguntas que un documento de continuidad no puede responder, y las tres prácticas para convertirlo en una capacidad real.">
+<meta property="og:image" content="../assets/logos/logo-horizontal-color.png">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<!-- Google Analytics (GA4): reemplaza G-XXXXXXXXXX por tu ID de medición -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="../index.html" class="brand"><img src="../assets/logos/logo-horizontal-negativo.png" alt="Protego Consulting"></a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../servicios.html">Servicios</a></li>
+        <li><a href="../nosotros.html">Nosotros</a></li>
+        <li><a href="../blog.html" class="active">Blog</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+        <li><a href="https://protego1.pythonanywhere.com/login" target="_blank" rel="noopener">Protego One</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="../contacto.html" class="btn btn-outline">Agendar diagnóstico</a>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="bg-navy blueprint" style="padding-top:3.5rem; padding-bottom:3rem;">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Inicio</a> / <a href="../blog.html">Blog</a> / Continuidad</div>
+    <span class="eyebrow">Continuidad · ISO 22301 · LOPDP</span>
+    <h1 style="max-width:26ch;">Su plan de continuidad, ¿es un documento o una capacidad real?</h1>
+    <p class="lead" style="max-width:65ch;">Casi todas las empresas medianas y grandes que auditamos tienen, en algún servidor o carpeta compartida, un archivo llamado "Plan de Continuidad de Negocio". Tiene portada, tabla de contenidos, un organigrama de crisis y una lista de contactos de emergencia. El problema es que, cuando preguntamos cuándo fue la última vez que se probó, la respuesta habitual es "nunca" o "no me acuerdo".</p>
+    <div style="margin-top:1.5rem; font-size:.85rem; color:#AFC3D3;">Por <strong style="color:#fff;">César Viteri</strong> · 28 de agosto de 2026 · 5 min de lectura</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="legal-content" style="max-width:760px; margin:0 auto;">
+
+      <p>Ese documento no es un plan de continuidad. Es un ejercicio de cumplimiento que quedó archivado el día que se terminó de escribir.</p>
+
+      <p>La diferencia entre tener un documento y tener una capacidad real de continuidad es, exactamente, la diferencia entre sobrevivir a un incidente y descubrir en medio de la crisis que el plan no sirve.</p>
+
+      <h2>Las tres preguntas que un documento no puede responder</h2>
+      <p>Un plan de continuidad bien escrito puede responder, en el papel, casi cualquier pregunta. Una capacidad real de continuidad solo se demuestra respondiendo estas tres preguntas con hechos, no con intenciones.</p>
+
+      <p><strong>¿Los respaldos realmente se pueden restaurar, y en cuánto tiempo?</strong> No basta con que el respaldo se ejecute cada noche sin errores en el log. Hay que saber, con un número concreto, cuánto tiempo toma restaurar el sistema crítico desde ese respaldo, y si ese tiempo es compatible con lo que el negocio puede tolerar sin operar. Muchas empresas descubren la respuesta real durante el incidente, no antes.</p>
+
+      <p><strong>¿La lista de contactos y roles de crisis sigue siendo la de hoy?</strong> Es común encontrar planes donde el "responsable de comunicaciones de crisis" dejó la empresa hace ocho meses, o donde el número de teléfono de emergencia del proveedor de conectividad ya no existe. Un plan que no se actualiza cada vez que cambia el organigrama, deja de ser un plan operativo y se convierte en un documento histórico.</p>
+
+      <p><strong>¿El equipo sabe, sin leer el manual, qué hacer en los primeros treinta minutos?</strong> En una crisis real no hay tiempo para leer cuarenta páginas y encontrar el procedimiento correcto. Si el equipo no ha practicado al menos una vez cómo se activa el plan, quién decide qué, y cómo se comunica hacia adentro y hacia afuera, la primera media hora del incidente se pierde en confusión, que es exactamente el tiempo que más cuenta.</p>
+
+      <h2>De documento a capacidad: qué hace falta</h2>
+      <p>Convertir un plan de papel en una capacidad real no requiere reescribirlo desde cero. Requiere tres prácticas que la mayoría de las empresas simplemente no tiene calendarizadas.</p>
+      <p>La primera es probar los respaldos y los sistemas de recuperación con una periodicidad definida, no solo confirmar que el proceso automático corrió sin errores, sino ejecutar una restauración real y medir el tiempo que toma.</p>
+      <p>La segunda es ejercitar el plan con simulacros de escritorio (tabletop exercises): reunir al equipo de crisis, plantear un escenario realista —una falla del proveedor de nube principal, un secuestro de datos, la caída del centro de datos— y recorrer, sin avisos previos, cómo respondería la organización. Estos ejercicios, de dos o tres horas, revelan más brechas reales que cualquier revisión documental.</p>
+      <p>La tercera es mantener el plan vivo: revisarlo cada vez que cambia un proceso crítico, un proveedor clave o una persona en un rol de crisis, en lugar de esperar a la próxima auditoría o certificación para actualizarlo.</p>
+
+      <h2>Por qué esto también es un tema de protección de datos</h2>
+      <p>La continuidad operativa no es solo un tema de infraestructura o de negocio. La LOPDP exige garantizar la disponibilidad e integridad de los datos personales que la empresa trata, y un incidente sin capacidad real de recuperación puede convertirse, además de en una crisis operativa, en una brecha de datos que hay que notificar a la autoridad. Un plan de continuidad que solo existe en el papel expone a la empresa en ambos frentes al mismo tiempo.</p>
+
+      <h2>Cómo lo evaluamos en Protego Consulting</h2>
+      <p>Cuando auditamos la continuidad de un cliente, no revisamos si el documento está bien redactado. Revisamos si la organización puede demostrar, con evidencia, que sabe restaurar sus sistemas dentro de los tiempos que el negocio necesita, que su equipo de crisis sabe actuar sin manual en mano, y que el plan refleja la operación de hoy y no la de hace dos años.</p>
+
+      <p>Si no está seguro de si su plan de continuidad es un documento o una capacidad, la forma más rápida de averiguarlo es ponerlo a prueba. Conversemos sobre un simulacro de continuidad para su organización.</p>
+
+      <div style="margin:2rem 0;">
+        <span class="tag-pill">Continuidad del Negocio</span>
+        <span class="tag-pill">ISO 22301</span>
+        <span class="tag-pill">LOPDP</span>
+        <span class="tag-pill">Gestión de Riesgos</span>
+        <span class="tag-pill">Simulacros</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-mist">
+  <div class="container">
+    <div class="cta-panel bg-navy blueprint">
+      <span class="eyebrow" style="justify-content:center;">Su próximo paso</span>
+      <h2>¿Documento o capacidad real?</h2>
+      <p class="lead" style="max-width:56ch; margin:0 auto;">Conversemos sobre un simulacro de continuidad para su organización y averigüe la respuesta con evidencia, no con intenciones.</p>
+      <div class="btn-row">
+        <a href="../contacto.html#diagnostico" class="btn btn-gold">Agendar diagnóstico gratuito</a>
+        <a href="../blog.html" class="btn btn-outline">Volver al blog</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer bg-navy">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="../assets/logos/logo-horizontal-negativo.png" alt="Protego Consulting" style="height:32px; margin-bottom:1rem;">
+        <p>Ciberseguridad y protección de datos para empresas que no pueden detenerse.</p>
+        <div class="social-row">
+          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 5 3.88 6 2.5 6S0 5 0 3.5 1.12 1 2.5 1s2.48 1 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.7V24h-5v-7.8c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-5V8z"/></svg></a>
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.25.07 1.63.07 4.81 0 3.19 0 3.56-.07 4.81-.15 3.2-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07-3.2 0-3.58 0-4.83-.07-3.26-.15-4.77-1.72-4.92-4.92-.07-1.25-.07-1.62-.07-4.81 0-3.19 0-3.56.07-4.81C2.35 3.97 3.87 2.42 7.13 2.27 8.38 2.2 8.76 2.2 12 2.2zm0 2c-3.15 0-3.5 0-4.73.07-2.15.1-3.14 1.1-3.24 3.24C4 8.54 4 8.89 4 12.04c0 3.14 0 3.5.07 4.72.1 2.15 1.1 3.15 3.24 3.25 1.23.06 1.58.07 4.73.07 3.16 0 3.5 0 4.73-.07 2.14-.1 3.14-1.1 3.24-3.25.06-1.22.07-1.58.07-4.72 0-3.15 0-3.5-.07-4.73-.1-2.14-1.1-3.14-3.24-3.24C15.5 4.2 15.16 4.2 12 4.2zm0 3.4a4.4 4.4 0 110 8.8 4.4 4.4 0 010-8.8zm0 2a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8zm5.6-2.6a1.03 1.03 0 110 2.06 1.03 1.03 0 010-2.06z"/></svg></a>
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
+          <a href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2c.4 2.4 2 4.2 4.4 4.5v3c-1.6.1-3-.4-4.4-1.3v7.1c0 3.7-3 6.7-6.7 6.7S3.2 19 3.2 15.3s3-6.7 6.7-6.7c.4 0 .8 0 1.2.1v3.2a3.3 3.3 0 00-1.2-.2 3.5 3.5 0 100 7 3.5 3.5 0 003.4-3.6V2h3.3z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="../servicios.html">Servicios</a></li>
+          <li><a href="../nosotros.html">Nosotros</a></li>
+          <li><a href="../blog.html">Blog</a></li>
+          <li><a href="../contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="../servicios.html#iso27001">Implementación ISO 27001</a></li>
+          <li><a href="../servicios.html#dpoaas">DPO as a Service</a></li>
+          <li><a href="../servicios.html#continuidad">Continuidad del negocio</a></li>
+          <li><a href="../servicios.html#riesgos">Gestión de riesgos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@protego-consulting.com">info@protego-consulting.com</a></li>
+          <li><a href="tel:+593993355226">+593 99 335 5226</a></li>
+          <li>Guayaquil, Ecuador</li>
+          <li>Lun–Vie · 8:00–17:00</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacidad.html">Política de Privacidad</a></li>
+          <li><a href="../terminos.html">Términos y Condiciones</a></li>
+          <li><a href="../cookies.html">Política de Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Protego Consulting. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/593993355226" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.3.5 1.8.6.8.2 1.4.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3C8.4 21.6 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.2-8.4 8.2z"/></svg>
+</a>
+
+<div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+  <p>Usamos cookies propias y de terceros para mejorar su experiencia en este sitio y analizar su uso. Puede conocer más en nuestra <a href="../cookies.html">Política de Cookies</a>.</p>
+  <div class="cookie-actions">
+    <button type="button" class="btn btn-outline" data-cookie-reject>Solo esenciales</button>
+    <button type="button" class="btn btn-gold" data-cookie-accept>Aceptar todas</button>
+  </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

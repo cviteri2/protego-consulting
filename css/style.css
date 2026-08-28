@@ -246,6 +246,25 @@ section{ padding: var(--gap-xl) 0; position:relative; }
 .tdots button{ width:9px; height:9px; border-radius:50%; border:0; background:var(--line); cursor:pointer; padding:0; }
 .tdots button.active{ background:var(--gold); }
 
+/* ---------- Franja de clientes ---------- */
+.clients-strip{ margin-top:3.5rem; padding-top:3rem; border-top:1px solid var(--line); text-align:center; }
+.clients-strip-label{
+  display:block; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.12em;
+  font-size:.78rem; color:var(--slate); margin-bottom:1.8rem;
+}
+.clients-logos{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:2.6rem;
+}
+.clients-logos img{
+  height:38px; width:auto; max-width:140px; object-fit:contain;
+  filter:grayscale(1) opacity(.6); transition:filter .2s ease;
+}
+.clients-logos img:hover{ filter:grayscale(0) opacity(1); }
+@media (max-width:620px){
+  .clients-logos{ gap:1.8rem; }
+  .clients-logos img{ height:30px; max-width:110px; }
+}
+
 /* ---------- Manifiesto ---------- */
 .manifesto{ text-align:center; max-width:820px; margin:0 auto; }
 .manifesto h2{ font-size:clamp(1.8rem,4vw,2.8rem); }

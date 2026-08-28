@@ -54,6 +54,33 @@ document.addEventListener('DOMContentLoaded', function () {
     setInterval(function () { show((idx + 1) % slides.length); }, 6000);
   }
 
+  /* Carrusel de logos de clientes (grupos de hasta 4) */
+  var clientSlides = document.querySelectorAll('.clients-logos');
+  var cdotsWrap = document.querySelector('.cdots');
+  if (clientSlides.length > 1) {
+    var cidx = 0;
+    clientSlides.forEach(function (s, i) {
+      if (cdotsWrap) {
+        var cb = document.createElement('button');
+        cb.setAttribute('aria-label', 'Ver clientes ' + (i + 1));
+        if (i === 0) cb.classList.add('active');
+        cb.addEventListener('click', function () { showClients(i); });
+        cdotsWrap.appendChild(cb);
+      }
+    });
+    function showClients(i) {
+      cidx = i;
+      clientSlides.forEach(function (s, j) { s.classList.toggle('active', j === i); });
+      if (cdotsWrap) {
+        cdotsWrap.querySelectorAll('button').forEach(function (b, j) {
+          b.classList.toggle('active', j === i);
+        });
+      }
+    }
+    showClients(0);
+    setInterval(function () { showClients((cidx + 1) % clientSlides.length); }, 5000);
+  }
+
   /* Contadores animados de estadísticas */
   var stats = document.querySelectorAll('[data-count]');
   if (stats.length && 'IntersectionObserver' in window) {

@@ -306,6 +306,10 @@ section{ padding: var(--gap-xl) 0; position:relative; }
 .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--blue); border-color:var(--blue); }
 .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 @media (max-width:560px){ .field-row{ grid-template-columns:1fr; } }
+.consent{ display:flex; align-items:flex-start; gap:.6rem; margin-bottom:1rem; font-size:.85rem; color:var(--slate); }
+.consent input{ width:1.05rem; height:1.05rem; margin-top:.15rem; flex-shrink:0; accent-color:var(--navy); }
+.consent label{ cursor:pointer; }
+.consent + .btn{ margin-top:.4rem; }
 .form-success-icon{
   width:56px; height:56px; border-radius:50%; background:var(--navy);
   display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem;

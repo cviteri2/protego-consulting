@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var current = (window.location.pathname.split('/').pop() || 'index.html');
   document.querySelectorAll('.nav-links a').forEach(function (a) {
     var href = a.getAttribute('href');
-    if (href === current || (current === '' && href === 'index.html')) {
+    if (href === current || (current === 'index.html' && href === '/')) {
       a.classList.add('active');
     }
   });
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     requestAnimationFrame(step);
   }
 
-  /* Año dinámico en footer */
+  /* Año en footer: el HTML ya trae el año fijo; esto solo lo actualiza (mejora progresiva) */
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });

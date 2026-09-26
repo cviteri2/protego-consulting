@@ -7,10 +7,12 @@ Sitio estático (HTML + CSS + JS, sin dependencias de build) listo para publicar
 ```
 protego-site/
 ├── index.html          Inicio
-├── servicios.html       ISO 27001 / DPOaaS / Continuidad / Riesgos
+├── servicios.html       Índice de servicios + Continuidad, Riesgos, Kits LOPDP, Protego One, Sectores
+├── servicios/           Páginas por servicio (ISO 27001, DPO externo, Consultoría LOPDP)
 ├── nosotros.html        Misión, visión, valores, perfil de César Viteri
 ├── contacto.html        Formulario + información de contacto
-├── blog.html            Estado inicial del blog (posts "próximamente")
+├── blog.html            Listado de artículos (blog/)
+├── blog/                Artículos
 ├── privacidad.html       Política de privacidad (plantilla LOPDP)
 ├── terminos.html         Términos y condiciones (plantilla)
 ├── cookies.html          Aviso de cookies (plantilla)
@@ -19,6 +21,7 @@ protego-site/
 ├── assets/logos/         Logos oficiales (color, negativo, isotipo, favicon)
 ├── CNAME                 Dominio personalizado para GitHub Pages
 ├── robots.txt / sitemap.xml
+├── assets/og/            Imagen para redes sociales 1200x630
 ```
 
 ## 1. Publicar en GitHub Pages
@@ -59,7 +62,7 @@ En **cada archivo HTML**, dentro del `<head>`, descomenta (quita `<!--` y `-->`)
 ## 5. Qué reemplazar antes de publicar
 
 - [ ] **Testimonios** en `index.html` — son ejemplos ilustrativos, reemplázalos por testimonios reales de clientes (con su autorización).
-- [ ] **Enlaces de redes sociales** (`#` en LinkedIn, Instagram, YouTube, TikTok) en el footer de cada página — coloca tus URLs reales.
+- [x] **Redes sociales**: el footer enlaza solo al LinkedIn de César Viteri; los demás iconos se retiraron.
 - [ ] **ID de Google Analytics**.
 - [ ] **Formulario de contacto** (CognitoForms o Formspree, ver punto 3).
 - [ ] Revisar las páginas legales (`privacidad.html`, `terminos.html`, `cookies.html`) — son plantillas base y conviene que las revises con tu criterio profesional antes de publicarlas.

@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-EC">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Protego Consulting | Ciberseguridad, LOPDP e ISO 27001 en Ecuador</title>
 <meta name="description" content="DPOaaS, implementación acelerada de ISO 27001 y continuidad del negocio para empresas ecuatorianas en sectores regulados. Protección estratégica, resultados medibles.">
-<link rel="icon" type="image/png" href="assets/logos/favicon-512.png">
+<link rel="canonical" href="https://protego-consulting.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Protego Consulting">
+<meta property="og:locale" content="es_EC">
 <meta property="og:title" content="Protego Consulting | Protección Estratégica. Resultados Medibles.">
 <meta property="og:description" content="Ciberseguridad y protección de datos para empresas que no pueden detenerse.">
-<meta property="og:image" content="assets/logos/logo-horizontal-color.png">
-<meta property="og:type" content="website">
+<meta property="og:url" content="https://protego-consulting.com/">
+<meta property="og:image" content="https://protego-consulting.com/assets/logos/logo-horizontal-color.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://protego-consulting.com/#organization",
+      "name": "Protego Consulting",
+      "url": "https://protego-consulting.com/",
+      "logo": "https://protego-consulting.com/assets/logos/logo-horizontal-color.png",
+      "image": "https://protego-consulting.com/assets/logos/logo-horizontal-color.png",
+      "description": "DPOaaS, implementación acelerada de ISO 27001 y continuidad del negocio para empresas ecuatorianas en sectores regulados. Protección estratégica, resultados medibles.",
+      "telephone": "+593993355226",
+      "email": "info@protego-consulting.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Guayaquil",
+        "addressCountry": "EC"
+      },
+      "openingHours": "Mo-Fr 08:00-17:00",
+      "areaServed": "EC",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://protego-consulting.com/nosotros.html#cesar-viteri",
+        "name": "César Viteri",
+        "url": "https://protego-consulting.com/nosotros.html",
+        "sameAs": [
+          "https://www.linkedin.com/in/cesarviteri/"
+        ],
+        "jobTitle": "Auditor Líder ISO 27001",
+        "description": "Estratega en ciberseguridad y gestión de riesgos, Auditor Líder ISO 27001 y autor del libro \"ISO 27001:2022, un enfoque práctico\".",
+        "worksFor": {
+          "@id": "https://protego-consulting.com/#organization"
+        },
+        "knowsAbout": [
+          "ISO 27001",
+          "ISO 22301",
+          "ISO 31000",
+          "LOPDP",
+          "Protección de datos personales"
+        ]
+      }
+    }
+  ]
+}
+</script>
+<link rel="icon" type="image/png" href="assets/logos/favicon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -29,10 +79,10 @@
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="brand"><img src="assets/logos/logo-horizontal-negativo.png" alt="Protego Consulting"></a>
+    <a href="/" class="brand"><img src="assets/logos/logo-horizontal-negativo.png" alt="Protego Consulting — ir al inicio" width="1323" height="403"></a>
     <nav aria-label="Principal">
       <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="/" class="active">Inicio</a></li>
         <li><a href="servicios.html">Servicios</a></li>
         <li><a href="nosotros.html">Nosotros</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -42,7 +92,7 @@
       </ul>
     </nav>
     <div class="nav-cta">
-      <a href="contacto.html" class="btn btn-outline">Agendar diagnóstico</a>
+      <a href="contacto.html#diagnostico" class="btn btn-outline">Agende su diagnóstico</a>
       <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -53,18 +103,19 @@
   <div class="container">
     <div>
       <span class="eyebrow">DPOaaS · ISO 27001 · LOPDP Ecuador</span>
-      <h1>Protección estratégica.<br>Resultados medibles.</h1>
-      <p class="lead">Diseñamos sistemas de ciberseguridad, protección de datos y continuidad del negocio que se integran a su operación — no que la detienen. Cumplimiento verificable en 6 meses, no en 18.</p>
+      <h1>Cumplimiento LOPDP e ISO 27001 para empresas en Ecuador</h1>
+      <p class="hero-tagline">Protección estratégica. Resultados medibles.</p>
+      <p class="lead">Diseñamos sistemas de ciberseguridad, protección de datos y continuidad del negocio que se integran a su operación — no que la detienen. Listos para la auditoría de certificación ISO 27001 en 6 meses, no en 18.</p>
       <div class="btn-row">
-        <a href="contacto.html#diagnostico" class="btn btn-gold">Agenda tu diagnóstico gratuito</a>
+        <a href="contacto.html#diagnostico" class="btn btn-gold">Agende su diagnóstico gratuito</a>
         <a href="https://wa.me/593993355226?text=Hola%20Protego%20Consulting%2C%20quiero%20agendar%20un%20diagn%C3%B3stico%20inicial" target="_blank" rel="noopener" class="btn btn-whatsapp">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.3.5 1.8.6.8.2 1.4.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.2L2 22l4.9-1.3C8.4 21.6 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4 15 3.6 13.5 3.6 12c0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.8 8.2-8.4 8.2z"/></svg>
           WhatsApp
         </a>
       </div>
       <div class="hero-stat">
-        <div><span class="num">73%</span><span class="lbl">de empresas en Ecuador fallan al cumplir la LOPDP sin detenerse</span></div>
-        <div><span class="num">6 meses</span><span class="lbl">para certificación ISO 27001 verificable</span></div>
+        <div><span class="num">11+</span><span class="lbl">empresas acompañadas en cumplimiento LOPDP</span></div>
+        <div><span class="num">6 meses</span><span class="lbl">hasta estar listos para la auditoría de certificación ISO 27001</span></div>
         <div><span class="num">15+</span><span class="lbl">años protegiendo información de empresas críticas</span></div>
       </div>
     </div>
@@ -94,7 +145,7 @@
         <span class="eyebrow">Autodiagnóstico</span>
         <h2>5 señales de que su operación está expuesta bajo la LOPDP</h2>
         <p class="lead">El riesgo real no es solo la multa regulatoria — es la interrupción del negocio y la pérdida de confianza de sus clientes.</p>
-        <a href="contacto.html#diagnostico" class="btn btn-outline-navy">Solicitar diagnóstico sin costo</a>
+        <a href="blog/senales-exposicion-lopdp.html" class="card-link" style="font-weight:600;">Leer el análisis completo →</a>
       </div>
       <div class="card" style="padding:2.2rem;">
         <ul style="list-style:none; padding:0; margin:0; display:grid; gap:1rem;">
@@ -124,13 +175,13 @@
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div>
         <h3>Ciberseguridad Estratégica</h3>
         <p>Implementación acelerada de ISO 27001 y gestión de riesgos (ISO 31000) en 6 meses — la mitad del tiempo estándar del mercado.</p>
-        <a href="servicios.html#iso27001" class="card-link">Ver metodología →</a>
+        <a href="servicios/implementacion-iso-27001-ecuador.html" class="card-link">Ver metodología →</a>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
         <h3>Protección de Datos (DPOaaS)</h3>
         <p>Delegado de Protección de Datos con experiencia sectorial. Cumplimiento continuo de la LOPDP sin contratar a tiempo completo.</p>
-        <a href="servicios.html#dpoaas" class="card-link">Ver alcance →</a>
+        <a href="servicios/dpo-externo-ecuador.html" class="card-link">Ver alcance →</a>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 10-2.6 6.4M21 21v-5h-5"/></svg></div>
@@ -139,6 +190,7 @@
         <a href="servicios.html#continuidad" class="card-link">Ver enfoque →</a>
       </div>
     </div>
+    <p style="text-align:center; margin-top:2rem;"><a href="servicios.html#kits" style="font-weight:600;">Ver kits y planes →</a></p>
   </div>
 </section>
 
@@ -148,6 +200,7 @@
     <div class="section-head center">
       <span class="eyebrow">Por qué Protego</span>
       <h2>La seguridad no es un proyecto. Es una postura.</h2>
+      <p class="lead">No vendemos miedo. Construimos resiliencia.</p>
     </div>
     <div class="compare-scroll">
       <table class="compare">
@@ -161,21 +214,6 @@
           <tr><td>Entregable</td><td>Documento que nadie prueba</td><td>Tecnología genérica</td><td class="win">Sistemas resilientes y probados</td></tr>
         </tbody>
       </table>
-    </div>
-  </div>
-</section>
-
-<!-- MANIFIESTO -->
-<section class="bg-navy blueprint">
-  <div class="container">
-    <div class="manifesto">
-      <span class="eyebrow">Nuestro manifiesto</span>
-      <h2>No vendemos miedo. Construimos resiliencia.</h2>
-      <div class="rows">
-        <p>No alargamos proyectos. Entregamos resultados.</p>
-        <p>No hablamos en tecnicismos. Traducimos riesgos en decisiones de negocio.</p>
-        <p>No creemos en la "talla única". Diseñamos para su realidad operativa.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -211,21 +249,21 @@
       <span class="clients-strip-label">Ya confían en nosotros</span>
       <div class="clients-carousel">
         <div class="clients-logos active">
-          <img src="assets/logos/clients/logo-la-brokers.png" alt="LA Brokers" loading="lazy">
-          <img src="assets/logos/clients/logo-farmacias-megasalud.png" alt="Farmacias MegaSalud" loading="lazy">
-          <img src="assets/logos/clients/logo-noboasociados.png" alt="Noboasociados" loading="lazy">
-          <img src="assets/logos/clients/logo-nuclearmed.png" alt="Nuclearmed" loading="lazy">
+          <img src="assets/logos/clients/logo-la-brokers.png" alt="Logotipo de LA Brokers" width="225" height="225" loading="lazy">
+          <img src="assets/logos/clients/logo-farmacias-megasalud.png" alt="Logotipo de Farmacias MegaSalud" width="225" height="225" loading="lazy">
+          <img src="assets/logos/clients/logo-noboasociados.png" alt="Logotipo de Noboasociados" width="333" height="151" loading="lazy">
+          <img src="assets/logos/clients/logo-nuclearmed.png" alt="Logotipo de Nuclearmed" width="762" height="428" loading="lazy">
         </div>
         <div class="clients-logos">
-          <img src="assets/logos/clients/logo-sonne.png" alt="Sonne Broker de Seguros" loading="lazy">
-          <img src="assets/logos/clients/logo-telenews.png" alt="Telenews" loading="lazy">
-          <img src="assets/logos/clients/logo-tuseg.jpg" alt="Tuseg" loading="lazy">
-          <img src="assets/logos/clients/logo-asismed.png" alt="Asismed" loading="lazy">
+          <img src="assets/logos/clients/logo-sonne.png" alt="Logotipo de Sonne Broker de Seguros" width="360" height="140" loading="lazy">
+          <img src="assets/logos/clients/logo-telenews.png" alt="Logotipo de Telenews" width="711" height="284" loading="lazy">
+          <img src="assets/logos/clients/logo-tuseg.jpg" alt="Logotipo de Tuseg" width="225" height="225" loading="lazy">
+          <img src="assets/logos/clients/logo-asismed.png" alt="Logotipo de Asismed" width="225" height="225" loading="lazy">
         </div>
         <div class="clients-logos">
-          <img src="assets/logos/clients/logo-balder-company.png" alt="Balder Company" loading="lazy">
-          <img src="assets/logos/clients/logo-economax.png" alt="Farmacias econoMax" loading="lazy">
-          <img src="assets/logos/clients/logo-gane.png" alt="GANE INC" loading="lazy">
+          <img src="assets/logos/clients/logo-balder-company.png" alt="Logotipo de Balder Company" width="500" height="500" loading="lazy">
+          <img src="assets/logos/clients/logo-economax.png" alt="Logotipo de Farmacias econoMax" width="225" height="225" loading="lazy">
+          <img src="assets/logos/clients/logo-gane.png" alt="Logotipo de GANE INC" width="2813" height="2250" loading="lazy">
         </div>
         <div class="cdots"></div>
       </div>
@@ -233,54 +271,8 @@
   </div>
 </section>
 
-<!-- VALIDADOR LOPDP -->
-<section>
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Herramienta gratuita</span>
-      <h2>Valide su Política de Privacidad en minutos</h2>
-      <p class="lead">Herramienta desarrollada por Protego Consulting para revisar si la Política de Privacidad de su sitio web cumple con los requisitos de la LOPDP.</p>
-    </div>
-    <div class="btn-row" style="justify-content:center; margin-top:1.5rem;">
-      <a href="https://validador.pythonanywhere.com/" target="_blank" rel="noopener" class="btn btn-outline-navy">Valida gratis tu Política de Privacidad (LOPDP)</a>
-    </div>
-  </div>
-</section>
-
-<!-- SECTORES -->
-<section>
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">A quién protegemos</span>
-      <h2>Soluciones diseñadas para su realidad operativa</h2>
-    </div>
-    <div class="grid-4">
-      <div class="sector">
-        <div class="ico" style="width:56px;height:56px;border-radius:14px;background:var(--mist);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E4D" stroke-width="1.8"><path d="M12 21s-7-4.35-9.3-8.4C1.2 9.7 2.8 6.5 6 6a4.6 4.6 0 016 1.7A4.6 4.6 0 0118 6c3.2.5 4.8 3.7 3.3 6.6C19 16.65 12 21 12 21z"/></svg></div>
-        <h4 style="font-size:.98rem;">Salud</h4>
-        <p style="font-size:.85rem;">Datos de pacientes e historias clínicas.</p>
-      </div>
-      <div class="sector">
-        <div class="ico" style="width:56px;height:56px;border-radius:14px;background:var(--mist);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E4D" stroke-width="1.8"><path d="M3 21h18M4 21V9l8-5 8 5v12M9 21v-6h6v6"/></svg></div>
-        <h4 style="font-size:.98rem;">Financiero</h4>
-        <p style="font-size:.85rem;">Doble presión: Superintendencia y LOPDP.</p>
-      </div>
-      <div class="sector">
-        <div class="ico" style="width:56px;height:56px;border-radius:14px;background:var(--mist);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E4D" stroke-width="1.8"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2l2.4 12.2a2 2 0 002 1.8h9.2a2 2 0 002-1.6L21 7H6"/></svg></div>
-        <h4 style="font-size:.98rem;">Retail &amp; BPO</h4>
-        <p style="font-size:.85rem;">Altos volúmenes de datos transaccionales.</p>
-      </div>
-      <div class="sector">
-        <div class="ico" style="width:56px;height:56px;border-radius:14px;background:var(--mist);display:flex;align-items:center;justify-content:center;"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#0A2E4D" stroke-width="1.8"><path d="M3 21h18M4 21V10l8-6 8 6v11M9 21v-5h6v5"/></svg></div>
-        <h4 style="font-size:.98rem;">Sector Público</h4>
-        <p style="font-size:.85rem;">Cumplimiento riguroso del esquema EGSI.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SOBRE CÉSAR (teaser) -->
-<section class="bg-mist">
+<section>
   <div class="container">
     <div class="profile">
       <div class="profile-avatar"><span>CV</span></div>
@@ -289,109 +281,18 @@
         <h2>César Viteri — Estratega en Ciberseguridad</h2>
         <p class="lead">Más de 15 años protegiendo la información de empresas críticas. Auditor Líder ISO 27001, experto en ISO 22301 y ISO 31000, y autor del libro <em>"ISO 27001:2022, un enfoque práctico"</em>.</p>
         <p class="pull-quote">"Rigor técnico sin arrogancia. Hablamos el lenguaje de su negocio."</p>
-        <a href="nosotros.html" class="btn btn-outline-navy">Conocer más sobre Protego →</a>
+        <a href="nosotros.html#cesar-viteri" style="font-weight:600;">Conocer más sobre César Viteri →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PACKS DE IMPLEMENTACIÓN -->
-<section class="bg-mist" id="packs">
+<!-- VALIDADOR LOPDP (franja) -->
+<div class="validator-strip bg-mist">
   <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Packs de implementación</span>
-      <h2>Elija su camino hacia el cumplimiento LOPDP</h2>
-      <p class="lead">Dos kits documentales listos para implementar, o una evaluación personalizada con un asesor.</p>
-    </div>
-
-    <div class="compare-scroll">
-      <table class="compare">
-        <thead>
-          <tr><th>Documento</th><th>Kit Esencial</th><th class="win">Kit Completo</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Resumen ejecutivo de diagnóstico</td><td>✓</td><td class="win">✓</td></tr>
-          <tr><td>Política interna de privacidad</td><td>✓</td><td class="win">✓</td></tr>
-          <tr><td>Aviso de privacidad</td><td>✓</td><td class="win">✓</td></tr>
-          <tr><td>Cláusulas de consentimiento</td><td>✓</td><td class="win">✓</td></tr>
-          <tr><td>Checklist de controles técnicos</td><td>✓</td><td class="win">✓</td></tr>
-          <tr><td>Procedimiento de derechos ARCO</td><td>Básico</td><td class="win">Completo (scripts y plazos)</td></tr>
-          <tr><td>Registro de Actividades de Tratamiento (RAT)</td><td>—</td><td class="win">✓</td></tr>
-          <tr><td>DPA con proveedores externos</td><td>—</td><td class="win">Si aplica</td></tr>
-          <tr><td>Protocolo de respuesta a incidentes</td><td>—</td><td class="win">✓</td></tr>
-          <tr><td>Pre-diagnóstico de riesgo</td><td>—</td><td class="win">✓</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-size:.85rem; color:var(--slate); margin-top:1rem;">¿Necesita algo distinto? La Asesoría a la Medida no tiene una lista fija de documentos — un asesor define junto a usted qué necesita después de una evaluación personalizada.</p>
-
-    <div class="packs-row" style="margin-top:2.2rem;">
-      <div class="card">
-        <span class="eyebrow">Pack 1</span>
-        <h3>Kit Esencial</h3>
-        <p class="pack-price">Consultar</p>
-        <p>Los documentos base para demostrar cumplimiento ante una auditoría inicial de LOPDP.</p>
-        <a href="contacto.html" class="btn btn-outline-navy btn-block">Elegir Kit Esencial</a>
-      </div>
-
-      <div class="card" style="border-color:var(--gold);">
-        <span class="eyebrow">Pack 2</span>
-        <h3>Kit Completo</h3>
-        <p class="pack-price">Consultar</p>
-        <p>Todo lo del Kit Esencial, más RAT, DPA y protocolo de incidentes.</p>
-        <a href="contacto.html" class="btn btn-gold btn-block">Elegir Kit Completo</a>
-      </div>
-
-      <div class="card" style="position:relative;">
-        <span class="pack-badge">Recomendado</span>
-        <span class="eyebrow">Pack 3</span>
-        <h3>Asesoría a la Medida</h3>
-        <p class="pack-price">Personalizado</p>
-        <p>Evaluamos su caso y definimos junto a usted qué necesita.</p>
-        <a href="https://wa.me/593993355226?text=Hola%20Protego%20Consulting%2C%20quisiera%20una%20asesor%C3%ADa%20personalizada%20LOPDP" target="_blank" rel="noopener" class="btn btn-whatsapp btn-block">Hablar por WhatsApp</a>
-      </div>
-    </div>
+    <p><strong>Herramienta gratuita:</strong> <a href="https://validador.pythonanywhere.com/" target="_blank" rel="noopener">valide si la Política de Privacidad de su sitio web cumple la LOPDP →</a></p>
   </div>
-</section>
-
-<!-- PROTEGO ONE -->
-<section id="protego-one">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Protego One</span>
-      <h2>Su cumplimiento LOPDP, siempre a la vista</h2>
-      <p class="lead">Protego One es la plataforma web donde su empresa da seguimiento en tiempo real a su cumplimiento LOPDP: checklist de 8 fases, evidencias documentales y chat directo con su DPO, todo en un solo lugar.</p>
-    </div>
-
-    <div class="packs-row" style="justify-content:center; max-width:760px; margin:2.2rem auto 0;">
-      <div class="card" style="max-width:340px;">
-        <span class="eyebrow">Plan Básico</span>
-        <h3>Acceso Individual</h3>
-        <p class="pack-price">Consultar</p>
-        <ul class="check-list">
-          <li>Acceso al portal Protego One</li>
-          <li>Checklist interactivo de las 8 fases LOPDP</li>
-          <li>Verificación de cuenta por correo</li>
-          <li>Seguimiento de avance en tiempo real</li>
-        </ul>
-        <a href="https://wa.me/593993355226?text=Hola%20Protego%20Consulting%2C%20quisiera%20el%20Plan%20B%C3%A1sico%20de%20Protego%20One" target="_blank" rel="noopener" class="btn btn-outline-navy btn-block">Elegir Plan Básico</a>
-      </div>
-
-      <div class="card" style="max-width:340px; border-color:var(--gold);">
-        <span class="eyebrow">Plan Completo</span>
-        <h3>Acceso con DPO</h3>
-        <p class="pack-price">Consultar</p>
-        <ul class="check-list">
-          <li>Todo lo del Plan Básico</li>
-          <li>Chat bidireccional directo con su DPO</li>
-          <li>Carga y gestión de evidencias documentales</li>
-          <li>Soporte prioritario</li>
-        </ul>
-        <a href="https://wa.me/593993355226?text=Hola%20Protego%20Consulting%2C%20quisiera%20el%20Plan%20Completo%20de%20Protego%20One" target="_blank" rel="noopener" class="btn btn-gold btn-block">Elegir Plan Completo</a>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- CTA FINAL -->
 <section id="diagnostico">
@@ -401,8 +302,7 @@
       <h2>De la incertidumbre al control.</h2>
       <p class="lead" style="max-width:520px; margin:0 auto;">Diagnóstico inicial de 60 minutos, sin costo. Revisamos su situación frente a la LOPDP, identificamos brechas críticas y le entregamos un plan de acción — no una propuesta genérica.</p>
       <div class="btn-row">
-        <a href="contacto.html" class="btn btn-gold">Agendar mi diagnóstico</a>
-        <a href="https://wa.me/593993355226" target="_blank" rel="noopener" class="btn btn-outline">Escribir por WhatsApp</a>
+        <a href="contacto.html#diagnostico" class="btn btn-gold">Agende su diagnóstico</a>
       </div>
     </div>
   </div>
@@ -413,19 +313,16 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <img src="assets/logos/logo-horizontal-negativo.png" alt="Protego Consulting" style="height:32px; margin-bottom:1rem;">
+        <img src="assets/logos/logo-horizontal-negativo.png" alt="Logotipo de Protego Consulting" width="1323" height="403" loading="lazy" style="height:32px; width:auto; margin-bottom:1rem;">
         <p>Ciberseguridad y protección de datos para empresas que no pueden detenerse.</p>
         <div class="social-row">
-          <a href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 5 3.88 6 2.5 6S0 5 0 3.5 1.12 1 2.5 1s2.48 1 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.7V24h-5v-7.8c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-5V8z"/></svg></a>
-          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 3.25.15 4.77 1.7 4.92 4.92.06 1.25.07 1.63.07 4.81 0 3.19 0 3.56-.07 4.81-.15 3.2-1.66 4.77-4.92 4.92-1.25.06-1.62.07-4.85.07-3.2 0-3.58 0-4.83-.07-3.26-.15-4.77-1.72-4.92-4.92-.07-1.25-.07-1.62-.07-4.81 0-3.19 0-3.56.07-4.81C2.35 3.97 3.87 2.42 7.13 2.27 8.38 2.2 8.76 2.2 12 2.2zm0 2c-3.15 0-3.5 0-4.73.07-2.15.1-3.14 1.1-3.24 3.24C4 8.54 4 8.89 4 12.04c0 3.14 0 3.5.07 4.72.1 2.15 1.1 3.15 3.24 3.25 1.23.06 1.58.07 4.73.07 3.16 0 3.5 0 4.73-.07 2.14-.1 3.14-1.1 3.24-3.25.06-1.22.07-1.58.07-4.72 0-3.15 0-3.5-.07-4.73-.1-2.14-1.1-3.14-3.24-3.24C15.5 4.2 15.16 4.2 12 4.2zm0 3.4a4.4 4.4 0 110 8.8 4.4 4.4 0 010-8.8zm0 2a2.4 2.4 0 100 4.8 2.4 2.4 0 000-4.8zm5.6-2.6a1.03 1.03 0 110 2.06 1.03 1.03 0 010-2.06z"/></svg></a>
-          <a href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>
-          <a href="#" aria-label="TikTok" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2c.4 2.4 2 4.2 4.4 4.5v3c-1.6.1-3-.4-4.4-1.3v7.1c0 3.7-3 6.7-6.7 6.7S3.2 19 3.2 15.3s3-6.7 6.7-6.7c.4 0 .8 0 1.2.1v3.2a3.3 3.3 0 00-1.2-.2 3.5 3.5 0 100 7 3.5 3.5 0 003.4-3.6V2h3.3z"/></svg></a>
+          <a href="https://www.linkedin.com/in/cesarviteri/" aria-label="LinkedIn de César Viteri" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 5 3.88 6 2.5 6S0 5 0 3.5 1.12 1 2.5 1s2.48 1 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.07c.67-1.2 2.3-2.5 4.73-2.5 5.06 0 6 3.3 6 7.7V24h-5v-7.8c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V24h-5V8z"/></svg></a>
         </div>
       </div>
       <div>
         <h4>Navegación</h4>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="/">Inicio</a></li>
           <li><a href="servicios.html">Servicios</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="blog.html">Blog</a></li>
@@ -435,8 +332,9 @@
       <div>
         <h4>Servicios</h4>
         <ul>
-          <li><a href="servicios.html#iso27001">Implementación ISO 27001</a></li>
-          <li><a href="servicios.html#dpoaas">DPO as a Service</a></li>
+          <li><a href="servicios/implementacion-iso-27001-ecuador.html">Implementación ISO 27001</a></li>
+          <li><a href="servicios/dpo-externo-ecuador.html">DPO externo (DPOaaS)</a></li>
+          <li><a href="servicios/consultoria-lopdp-ecuador.html">Consultoría LOPDP</a></li>
           <li><a href="servicios.html#continuidad">Continuidad del negocio</a></li>
           <li><a href="servicios.html#riesgos">Gestión de riesgos</a></li>
         </ul>
@@ -460,7 +358,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-year></span> Protego Consulting. Todos los derechos reservados.</span>
+      <span>© <span data-year>2026</span> Protego Consulting. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>

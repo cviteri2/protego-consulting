@@ -162,6 +162,7 @@
                 <input type="checkbox" id="acepta-comunicaciones" name="acepta_comunicaciones_comerciales" value="Sí">
                 <label for="acepta-comunicaciones">Deseo recibir comunicaciones comerciales sobre los servicios de Protego Consulting (opcional).</label>
               </div>
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
               <button type="submit" class="btn btn-gold btn-block" data-fs-submit-btn>Solicitar diagnóstico</button>
             </form>
           </div>
@@ -279,6 +280,22 @@
         errorBox.classList.add('visible');
       }
     }
+  });
+</script>
+<script>
+  // Registro de consentimientos en ConsentEC vía Cloudflare Worker (la API key vive en el Worker, no aquí).
+  // Va en paralelo a Formspree: si falla, el lead llega igual.
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    var form = new FormData(e.target), data = {};
+    // Minimización: sólo lo necesario para el registro del consentimiento.
+    ['nombre', 'correo', 'telefono', 'acepta_politica_privacidad', 'acepta_comunicaciones_comerciales', '_gotcha']
+      .forEach(function (k) { if (form.has(k)) data[k] = form.get(k); });
+    fetch('https://consentec-proxy.cviteri.workers.dev', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: true
+    }).catch(function () {});
   });
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>

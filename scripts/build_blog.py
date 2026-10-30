@@ -173,6 +173,17 @@ def parse_post(path):
     raw = re.sub(r"\\([*#\[\]_()>.-])", r"\1", raw)
     lines = raw.split("\n")
 
+    # La sección final "## Texto para LinkedIn" no se publica en el blog: va al feed RSS,
+    # de donde Make la toma para publicar en LinkedIn.
+    linkedin = ""
+    for i, line in enumerate(lines):
+        if re.match(r"(?i)^#{2,3}\s+texto\s+(para\s+)?linkedin\s*$", line.strip()):
+            linkedin = linkedin_text(lines[i + 1:])
+            lines = lines[:i]
+            while lines and (not lines[-1].strip() or re.fullmatch(r"(-{3,}|\*{3,}|_{3,})", lines[-1].strip())):
+                lines.pop()
+            break
+
     category = title = description = None
     body = []
     for line in lines:
@@ -204,7 +215,7 @@ def parse_post(path):
         raise PostError(f"{path.name}: el artículo debe empezar con un párrafo de introducción")
     lead = blocks.pop(0)[3:-4]
 
-    words = len(re.findall(r"\w+", strip_md(raw)))
+    words = len(re.findall(r"\w+", strip_md("\n".join(lines))))
     return {
         "slug": slug,
         "date": f"{year}-{month}-{day}",
@@ -218,7 +229,22 @@ def parse_post(path):
         "read_min": max(1, round(words / 200)),
         "href": f"blog/{slug}.html",
         "url": f"{SITE}/blog/{slug}.html",
+        "linkedin": linkedin,
     }
+
+
+def linkedin_text(lines):
+    """Texto plano para LinkedIn: sin Markdown y con párrafos separados por línea en blanco."""
+    paras, current = [], []
+    for line in lines + [""]:
+        s = line.strip()
+        if s:
+            s = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: f"{m.group(1)} ({clean_url(m.group(2))})", s)
+            current.append(re.sub(r"\*\*(.+?)\*\*|__(.+?)__", lambda m: m.group(1) or m.group(2), s))
+        elif current:
+            paras.append("\n".join(current))
+            current = []
+    return "\n\n".join(paras)
 
 
 def jsonld(post):
@@ -339,8 +365,13 @@ FEED_CARD_RE = re.compile(
 )
 
 
-def update_feed(index_text):
-    """RSS 2.0 con los artículos de blog.html (automáticos y escritos a mano)."""
+def update_feed(index_text, posts):
+    """RSS 2.0 con los artículos de blog.html (automáticos y escritos a mano).
+
+    Si el artículo trae "## Texto para LinkedIn", ese texto va en <description>
+    (es el campo que Make publica); si no, se usa la meta descripción.
+    """
+    linkedin = {p["slug"]: p["linkedin"] for p in posts if p["linkedin"]}
     x = lambda s: html.escape(html.unescape(s or ""), quote=False)
     cards = sorted(FEED_CARD_RE.findall(index_text), key=lambda c: c[4], reverse=True)[:20]
     ecuador = timezone(timedelta(hours=-5))
@@ -355,7 +386,7 @@ def update_feed(index_text):
             f'      <guid isPermaLink="true">{url}</guid>\n'
             f"      <pubDate>{pub}</pubDate>\n"
             f"      <category>{x(tag)}</category>\n"
-            f"      <description>{x(desc)}</description>\n"
+            f"      <description>{html.escape(linkedin[slug], quote=False) if slug in linkedin else x(desc)}</description>\n"
             "    </item>"
         )
     last = format_datetime(datetime.fromisoformat(cards[0][4]).replace(hour=9, tzinfo=ecuador)) if cards else ""
@@ -407,7 +438,7 @@ def main():
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     index_text = update_index(posts)
     update_sitemap(posts)
-    update_feed(index_text)
+    update_feed(index_text, posts)
 
     all_cards = sorted(CARD_RE.findall(index_text), key=lambda c: c[3], reverse=True)
     template = TEMPLATE.read_text(encoding="utf-8")

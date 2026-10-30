@@ -1,0 +1,46 @@
+name: Publicar blog
+
+# Convierte los artículos Markdown de content/blog/ en páginas del sitio
+# (blog/<slug>.html, tarjeta en blog.html y entrada en sitemap.xml).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/blog/**"
+      - "scripts/build_blog.py"
+      - "scripts/blog/**"
+  pull_request:
+    paths:
+      - "content/blog/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generar páginas del blog
+        run: python3 scripts/build_blog.py
+      # En un pull request solo se valida que el Markdown tenga el formato correcto.
+      - name: Publicar cambios generados
+        if: github.event_name != 'pull_request'
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "Sin cambios que publicar."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898733+github-actions[bot]@users.noreply.github.com"
+          git add blog.html sitemap.xml blog/
+          git commit -m "Blog: publicar artículos generados desde content/blog"
+          git push

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog | Protego Consulting</title>
+    <link>https://protego-consulting.com/blog.html</link>
+    <atom:link href="https://protego-consulting.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <description>Artículos sobre LOPDP, ISO 27001, continuidad del negocio y ciberseguridad en Ecuador.</description>
+    <language>es-EC</language>
+    <lastBuildDate>Fri, 30 Oct 2026 09:00:00 -0500</lastBuildDate>
+    <item>
+      <title>Cinco controles del Anexo A que las pymes ecuatorianas suelen ignorar (y que un incidente siempre cobra)</title>
+      <link>https://protego-consulting.com/blog/controles-anexo-a-pymes-ecuador-ignoran.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/controles-anexo-a-pymes-ecuador-ignoran.html</guid>
+      <pubDate>Fri, 30 Oct 2026 09:00:00 -0500</pubDate>
+      <category>ISO 27001</category>
+      <description>Al preparar ISO 27001, muchas pymes se concentran en lo evidente y descuidan controles clave del Anexo A. Estos cinco merecen su atención primero.</description>
+    </item>
+    <item>
+      <title>Plan de continuidad vs. simulacro real: la diferencia que se descubre el peor día</title>
+      <link>https://protego-consulting.com/blog/plan-continuidad-vs-simulacro-real.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/plan-continuidad-vs-simulacro-real.html</guid>
+      <pubDate>Fri, 23 Oct 2026 09:00:00 -0500</pubDate>
+      <category>Continuidad</category>
+      <description>Tener un plan de continuidad no significa saber operar sin sistemas. Descubra qué diferencia un documento de un simulacro real y cómo empezar sin paralizar su negocio.</description>
+    </item>
+    <item>
+      <title>Su plan de continuidad, ¿es un documento o una capacidad real?</title>
+      <link>https://protego-consulting.com/blog/plan-continuidad-documento-o-capacidad.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/plan-continuidad-documento-o-capacidad.html</guid>
+      <pubDate>Fri, 28 Aug 2026 09:00:00 -0500</pubDate>
+      <category>Continuidad</category>
+      <description>Casi todas las empresas tienen un Plan de Continuidad de Negocio archivado que nunca se ha probado. La diferencia entre tener un documento y tener una capacidad real de continuidad.</description>
+    </item>
+    <item>
+      <title>Por qué la certificación no debería tardar 18 meses</title>
+      <link>https://protego-consulting.com/blog/certificacion-18-meses.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/certificacion-18-meses.html</guid>
+      <pubDate>Mon, 24 Aug 2026 09:00:00 -0500</pubDate>
+      <category>ISO 27001</category>
+      <description>Un proceso de certificación ISO 27001 o cumplimiento LOPDP bien estructurado no necesita año y medio. Necesita la secuencia correcta: priorización por riesgo y evidencia generada desde el mes uno.</description>
+    </item>
+    <item>
+      <title>5 señales de que su empresa está expuesta bajo la LOPDP</title>
+      <link>https://protego-consulting.com/blog/senales-exposicion-lopdp.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/senales-exposicion-lopdp.html</guid>
+      <pubDate>Fri, 21 Aug 2026 09:00:00 -0500</pubDate>
+      <category>LOPDP</category>
+      <description>La Superintendencia de Protección de Datos Personales pasó de la socialización a la supervisión activa. Estas son las cinco señales que revisamos primero al auditar a un cliente nuevo.</description>
+    </item>
+    <item>
+      <title>El primer ciberataque ejecutado de extremo a extremo por agentes de IA autónomos</title>
+      <link>https://protego-consulting.com/blog/agentes-ia-ciberataque-taiwan.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/agentes-ia-ciberataque-taiwan.html</guid>
+      <pubDate>Wed, 19 Aug 2026 09:00:00 -0500</pubDate>
+      <category>Ciberseguridad · IA</category>
+      <description>Investigadores atribuyen a un grupo vinculado a China una intrusión contra Taiwán ejecutada de extremo a extremo por agentes de IA autónomos. Qué implica para el modelo de amenaza y el análisis de riesgo bajo la LOPDP y el RGPD.</description>
+    </item>
+  </channel>
+</rss>

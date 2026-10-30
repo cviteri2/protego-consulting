@@ -3,6 +3,8 @@
 
 Cada archivo content/blog/AAAA-MM-DD-slug.md produce blog/slug.html y una tarjeta
 en blog.html (entre los marcadores BLOG:AUTO), además de su entrada en sitemap.xml.
+También regenera feed.xml (RSS con todos los artículos de blog.html), que usan
+herramientas como Make para publicar en LinkedIn.
 Es idempotente: ejecutarlo dos veces sin cambios en content/ no modifica nada.
 
 Formato esperado (el que entrega la tarea programada del blog):
@@ -19,6 +21,8 @@ import html
 import json
 import re
 import sys
+from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -28,6 +32,8 @@ OUT = ROOT / "blog"
 TEMPLATE = ROOT / "scripts" / "blog" / "template.html"
 INDEX = ROOT / "blog.html"
 SITEMAP = ROOT / "sitemap.xml"
+FEED = ROOT / "feed.xml"
+FEED_LINK = '<link rel="alternate" type="application/rss+xml" title="Blog Protego Consulting" href="https://protego-consulting.com/feed.xml">'
 SITE = "https://protego-consulting.com"
 
 AUTO_START = "<!-- BLOG:AUTO:START (generado por scripts/build_blog.py, no editar a mano) -->"
@@ -289,6 +295,8 @@ def related_card(slug, tag, title, date, label):
 
 def update_index(posts):
     text = INDEX.read_text(encoding="utf-8")
+    if FEED_LINK not in text:
+        text = text.replace("</head>", FEED_LINK + "\n</head>", 1)
     if AUTO_START not in text:
         anchor = '<div class="grid-4">'
         if anchor not in text:
@@ -323,6 +331,51 @@ def update_sitemap(posts):
     write_if_changed(SITEMAP, text)
 
 
+FEED_CARD_RE = re.compile(
+    r'<a href="blog/([^"]+)\.html" class="card post-card"[^>]*>\s*'
+    r'<span class="tag">(.*?)</span>\s*<h3>(.*?)</h3>\s*(?:<p>(.*?)</p>\s*)?'
+    r'<time class="post-date" datetime="([^"]+)">',
+    re.S,
+)
+
+
+def update_feed(index_text):
+    """RSS 2.0 con los artículos de blog.html (automáticos y escritos a mano)."""
+    x = lambda s: html.escape(html.unescape(s or ""), quote=False)
+    cards = sorted(FEED_CARD_RE.findall(index_text), key=lambda c: c[4], reverse=True)[:20]
+    ecuador = timezone(timedelta(hours=-5))
+    items = []
+    for slug, tag, title, desc, date in cards:
+        url = f"{SITE}/blog/{slug}.html"
+        pub = format_datetime(datetime.fromisoformat(date).replace(hour=9, tzinfo=ecuador))
+        items.append(
+            "    <item>\n"
+            f"      <title>{x(title)}</title>\n"
+            f"      <link>{url}</link>\n"
+            f'      <guid isPermaLink="true">{url}</guid>\n'
+            f"      <pubDate>{pub}</pubDate>\n"
+            f"      <category>{x(tag)}</category>\n"
+            f"      <description>{x(desc)}</description>\n"
+            "    </item>"
+        )
+    last = format_datetime(datetime.fromisoformat(cards[0][4]).replace(hour=9, tzinfo=ecuador)) if cards else ""
+    text = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        "    <title>Blog | Protego Consulting</title>\n"
+        f"    <link>{SITE}/blog.html</link>\n"
+        f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+        "    <description>Artículos sobre LOPDP, ISO 27001, continuidad del negocio y ciberseguridad en Ecuador.</description>\n"
+        "    <language>es-EC</language>\n"
+        f"    <lastBuildDate>{last}</lastBuildDate>\n"
+        + "\n".join(items) + "\n"
+        "  </channel>\n"
+        "</rss>\n"
+    )
+    write_if_changed(FEED, text)
+
+
 def write_if_changed(path, text):
     if not path.exists() or path.read_text(encoding="utf-8") != text:
         path.write_text(text, encoding="utf-8")
@@ -354,6 +407,7 @@ def main():
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     index_text = update_index(posts)
     update_sitemap(posts)
+    update_feed(index_text)
 
     all_cards = sorted(CARD_RE.findall(index_text), key=lambda c: c[3], reverse=True)
     template = TEMPLATE.read_text(encoding="utf-8")

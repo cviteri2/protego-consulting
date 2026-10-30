@@ -12,7 +12,9 @@ protego-site/
 ├── nosotros.html        Misión, visión, valores, perfil de César Viteri
 ├── contacto.html        Formulario + información de contacto
 ├── blog.html            Listado de artículos (blog/)
-├── blog/                Artículos
+├── blog/                Artículos (los automáticos se generan desde content/blog/)
+├── content/blog/        Artículos en Markdown (fuente del blog automático)
+├── scripts/build_blog.py  Generador Markdown → HTML del blog
 ├── privacidad.html       Política de privacidad (plantilla LOPDP)
 ├── terminos.html         Términos y condiciones (plantilla)
 ├── cookies.html          Aviso de cookies (plantilla)
@@ -71,3 +73,25 @@ En **cada archivo HTML**, dentro del `<head>`, descomenta (quita `<!--` y `-->`)
 ## 6. Editar contenido
 
 No hay CMS ni build step: cada página es un archivo `.html` independiente que puedes editar directamente (con Claude Code, con un editor de texto, o subiendo cambios directo en GitHub). Los estilos compartidos están en `css/style.css` y el comportamiento interactivo en `js/main.js`.
+
+## 7. Blog automático
+
+Los artículos nuevos se escriben en Markdown en `content/blog/AAAA-MM-DD-slug.md`, con este encabezado:
+
+```
+**Categoría:** [ISO 27001]
+
+# Título del artículo
+
+**Meta descripción:** Texto de 150-160 caracteres.
+
+## Introducción
+
+Primer párrafo (se usa como entradilla)...
+```
+
+Al llegar a `main`, el workflow `.github/workflows/blog.yml` ejecuta `scripts/build_blog.py`, que genera `blog/slug.html`, agrega la tarjeta en `blog.html` (entre los marcadores `BLOG:AUTO`) y la entrada en `sitemap.xml`, y hace commit; GitHub Pages publica el resultado. En un pull request solo valida el formato.
+
+La tarea programada semanal del blog abre un pull request con el `.md` de la semana: al hacer *merge*, el artículo se publica solo. Para despublicar, borre el `.md` y la página generada en `blog/`.
+
+Para probar en local: `python3 scripts/build_blog.py`.

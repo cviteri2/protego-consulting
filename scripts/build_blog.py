@@ -164,7 +164,7 @@ def parse_post(path):
     year, month, day, slug = m.groups()
     raw = path.read_text(encoding="utf-8").replace("\r\n", "\n")
     # Las exportaciones de Google Drive a veces escapan la sintaxis Markdown.
-    raw = re.sub(r"\\([*#\[\]_()>-])", r"\1", raw)
+    raw = re.sub(r"\\([*#\[\]_()>.-])", r"\1", raw)
     lines = raw.split("\n")
 
     category = title = description = None
@@ -187,8 +187,9 @@ def parse_post(path):
     if missing:
         raise PostError(f"{path.name}: falta {', '.join(missing)}")
 
-    # El encabezado "Introducción" no se muestra: su primer párrafo pasa a ser la entradilla.
-    while body and not body[0].strip():
+    # El encabezado "Introducción" (o un separador ---) no se muestra: su primer
+    # párrafo pasa a ser la entradilla.
+    while body and (not body[0].strip() or re.fullmatch(r"(-{3,}|\*{3,}|_{3,})", body[0].strip())):
         body.pop(0)
     if body and re.match(r"(?i)^##\s+introducci[oó]n\s*$", body[0].strip()):
         body.pop(0)

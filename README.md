@@ -23,6 +23,7 @@ protego-site/
 ├── assets/logos/         Logos oficiales (color, negativo, isotipo, favicon)
 ├── CNAME                 Dominio personalizado para GitHub Pages
 ├── robots.txt / sitemap.xml
+├── feed.xml              RSS del blog (generado)
 ├── assets/og/            Imagen para redes sociales 1200x630
 ```
 
@@ -93,5 +94,7 @@ Primer párrafo (se usa como entradilla)...
 Al llegar a `main`, el workflow `.github/workflows/blog.yml` ejecuta `scripts/build_blog.py`, que genera `blog/slug.html`, agrega la tarjeta en `blog.html` (entre los marcadores `BLOG:AUTO`) y la entrada en `sitemap.xml`, y hace commit; GitHub Pages publica el resultado. En un pull request solo valida el formato.
 
 La tarea programada semanal del blog abre un pull request con el `.md` de la semana: al hacer *merge*, el artículo se publica solo. Para despublicar, borre el `.md` y la página generada en `blog/`.
+
+El generador también actualiza `feed.xml` (RSS con los artículos de `blog.html`), que Make usa para publicar cada artículo nuevo en LinkedIn. Si el `.md` termina con una sección `## Texto para LinkedIn`, esa sección no se muestra en el blog: va al campo `description` del feed y es lo que Make publica (sin ella, se usa la meta descripción).
 
 Para probar en local: `python3 scripts/build_blog.py`.

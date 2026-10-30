@@ -3,6 +3,8 @@
 
 Cada archivo content/blog/AAAA-MM-DD-slug.md produce blog/slug.html y una tarjeta
 en blog.html (entre los marcadores BLOG:AUTO), además de su entrada en sitemap.xml.
+También regenera feed.xml (RSS con todos los artículos de blog.html), que usan
+herramientas como Make para publicar en LinkedIn.
 Es idempotente: ejecutarlo dos veces sin cambios en content/ no modifica nada.
 
 Formato esperado (el que entrega la tarea programada del blog):
@@ -19,6 +21,8 @@ import html
 import json
 import re
 import sys
+from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
 
@@ -28,6 +32,8 @@ OUT = ROOT / "blog"
 TEMPLATE = ROOT / "scripts" / "blog" / "template.html"
 INDEX = ROOT / "blog.html"
 SITEMAP = ROOT / "sitemap.xml"
+FEED = ROOT / "feed.xml"
+FEED_LINK = '<link rel="alternate" type="application/rss+xml" title="Blog Protego Consulting" href="https://protego-consulting.com/feed.xml">'
 SITE = "https://protego-consulting.com"
 
 AUTO_START = "<!-- BLOG:AUTO:START (generado por scripts/build_blog.py, no editar a mano) -->"
@@ -167,6 +173,17 @@ def parse_post(path):
     raw = re.sub(r"\\([*#\[\]_()>.-])", r"\1", raw)
     lines = raw.split("\n")
 
+    # La sección final "## Texto para LinkedIn" no se publica en el blog: va al feed RSS,
+    # de donde Make la toma para publicar en LinkedIn.
+    linkedin = ""
+    for i, line in enumerate(lines):
+        if re.match(r"(?i)^#{2,3}\s+texto\s+(para\s+)?linkedin\s*$", line.strip()):
+            linkedin = linkedin_text(lines[i + 1:])
+            lines = lines[:i]
+            while lines and (not lines[-1].strip() or re.fullmatch(r"(-{3,}|\*{3,}|_{3,})", lines[-1].strip())):
+                lines.pop()
+            break
+
     category = title = description = None
     body = []
     for line in lines:
@@ -198,7 +215,7 @@ def parse_post(path):
         raise PostError(f"{path.name}: el artículo debe empezar con un párrafo de introducción")
     lead = blocks.pop(0)[3:-4]
 
-    words = len(re.findall(r"\w+", strip_md(raw)))
+    words = len(re.findall(r"\w+", strip_md("\n".join(lines))))
     return {
         "slug": slug,
         "date": f"{year}-{month}-{day}",
@@ -212,7 +229,22 @@ def parse_post(path):
         "read_min": max(1, round(words / 200)),
         "href": f"blog/{slug}.html",
         "url": f"{SITE}/blog/{slug}.html",
+        "linkedin": linkedin,
     }
+
+
+def linkedin_text(lines):
+    """Texto plano para LinkedIn: sin Markdown y con párrafos separados por línea en blanco."""
+    paras, current = [], []
+    for line in lines + [""]:
+        s = line.strip()
+        if s:
+            s = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", lambda m: f"{m.group(1)} ({clean_url(m.group(2))})", s)
+            current.append(re.sub(r"\*\*(.+?)\*\*|__(.+?)__", lambda m: m.group(1) or m.group(2), s))
+        elif current:
+            paras.append("\n".join(current))
+            current = []
+    return "\n\n".join(paras)
 
 
 def jsonld(post):
@@ -289,6 +321,8 @@ def related_card(slug, tag, title, date, label):
 
 def update_index(posts):
     text = INDEX.read_text(encoding="utf-8")
+    if FEED_LINK not in text:
+        text = text.replace("</head>", FEED_LINK + "\n</head>", 1)
     if AUTO_START not in text:
         anchor = '<div class="grid-4">'
         if anchor not in text:
@@ -323,6 +357,56 @@ def update_sitemap(posts):
     write_if_changed(SITEMAP, text)
 
 
+FEED_CARD_RE = re.compile(
+    r'<a href="blog/([^"]+)\.html" class="card post-card"[^>]*>\s*'
+    r'<span class="tag">(.*?)</span>\s*<h3>(.*?)</h3>\s*(?:<p>(.*?)</p>\s*)?'
+    r'<time class="post-date" datetime="([^"]+)">',
+    re.S,
+)
+
+
+def update_feed(index_text, posts):
+    """RSS 2.0 con los artículos de blog.html (automáticos y escritos a mano).
+
+    Si el artículo trae "## Texto para LinkedIn", ese texto va en <description>
+    (es el campo que Make publica); si no, se usa la meta descripción.
+    """
+    linkedin = {p["slug"]: p["linkedin"] for p in posts if p["linkedin"]}
+    x = lambda s: html.escape(html.unescape(s or ""), quote=False)
+    cards = sorted(FEED_CARD_RE.findall(index_text), key=lambda c: c[4], reverse=True)[:20]
+    ecuador = timezone(timedelta(hours=-5))
+    items = []
+    for slug, tag, title, desc, date in cards:
+        url = f"{SITE}/blog/{slug}.html"
+        pub = format_datetime(datetime.fromisoformat(date).replace(hour=9, tzinfo=ecuador))
+        items.append(
+            "    <item>\n"
+            f"      <title>{x(title)}</title>\n"
+            f"      <link>{url}</link>\n"
+            f'      <guid isPermaLink="true">{url}</guid>\n'
+            f"      <pubDate>{pub}</pubDate>\n"
+            f"      <category>{x(tag)}</category>\n"
+            f"      <description>{html.escape(linkedin[slug], quote=False) if slug in linkedin else x(desc)}</description>\n"
+            "    </item>"
+        )
+    last = format_datetime(datetime.fromisoformat(cards[0][4]).replace(hour=9, tzinfo=ecuador)) if cards else ""
+    text = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
+        "  <channel>\n"
+        "    <title>Blog | Protego Consulting</title>\n"
+        f"    <link>{SITE}/blog.html</link>\n"
+        f'    <atom:link href="{SITE}/feed.xml" rel="self" type="application/rss+xml"/>\n'
+        "    <description>Artículos sobre LOPDP, ISO 27001, continuidad del negocio y ciberseguridad en Ecuador.</description>\n"
+        "    <language>es-EC</language>\n"
+        f"    <lastBuildDate>{last}</lastBuildDate>\n"
+        + "\n".join(items) + "\n"
+        "  </channel>\n"
+        "</rss>\n"
+    )
+    write_if_changed(FEED, text)
+
+
 def write_if_changed(path, text):
     if not path.exists() or path.read_text(encoding="utf-8") != text:
         path.write_text(text, encoding="utf-8")
@@ -354,6 +438,7 @@ def main():
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     index_text = update_index(posts)
     update_sitemap(posts)
+    update_feed(index_text, posts)
 
     all_cards = sorted(CARD_RE.findall(index_text), key=lambda c: c[3], reverse=True)
     template = TEMPLATE.read_text(encoding="utf-8")

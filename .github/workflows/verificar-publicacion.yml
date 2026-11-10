@@ -1,0 +1,47 @@
+name: Verificar publicación
+
+# Después de cada merge que publica un blog, comprueba que los artículos estén
+# realmente en línea en protego-consulting.com. Si GitHub Pages no despliega
+# (como pasó el 6-nov-2026), pide un nuevo despliegue y vuelve a comprobar.
+# Si aun así falla, el workflow queda en rojo y GitHub envía un correo.
+on:
+  workflow_run:
+    workflows: ["Publicar blog"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+
+concurrency:
+  group: verificar-publicacion
+  cancel-in-progress: true
+
+jobs:
+  verificar:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Comprobar que los artículos estén en línea
+        id: primera
+        continue-on-error: true
+        run: bash scripts/verificar_publicacion.sh 900
+
+      - name: Pedir un nuevo despliegue de GitHub Pages
+        if: steps.primera.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "El sitio no se actualizó; se solicita un nuevo despliegue."
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || echo "::warning::No se pudo solicitar el despliegue."
+
+      - name: Comprobar de nuevo
+        if: steps.primera.outcome == 'failure'
+        run: bash scripts/verificar_publicacion.sh 1200

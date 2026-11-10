@@ -6,7 +6,35 @@
     <atom:link href="https://protego-consulting.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Artículos sobre LOPDP, ISO 27001, continuidad del negocio y ciberseguridad en Ecuador.</description>
     <language>es-EC</language>
-    <lastBuildDate>Fri, 06 Nov 2026 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 10 Nov 2026 09:00:00 -0500</lastBuildDate>
+    <item>
+      <title>Alguien afirma que filtró sus datos: cómo verificar la amenaza antes de reaccionar</title>
+      <link>https://protego-consulting.com/blog/alguien-dice-que-filtro-sus-datos-como-verificar.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/alguien-dice-que-filtro-sus-datos-como-verificar.html</guid>
+      <pubDate>Tue, 10 Nov 2026 09:00:00 -0500</pubDate>
+      <category>Ciberseguridad</category>
+      <description>Si mañana alguien publica que tiene los datos de sus clientes, ¿sabe qué haría en la primera hora?
+
+Esta semana un grupo afirmó en un foro tener datos de millones de contribuyentes en Perú. La entidad respondió que no hay evidencia de intrusión. Hoy nadie fuera de ese proceso puede asegurar quién tiene la razón.
+
+La lección para cualquier empresa: un reclamo no es una brecha confirmada, pero tampoco se ignora.
+
+Lo que yo haría primero:
+
+Guardar evidencia del anuncio antes de comentar nada.
+
+Nombrar a una sola persona que coordine.
+
+Comparar la muestra con sus propios sistemas y revisar accesos recientes.
+
+Llamar a los proveedores que manejan datos por usted. A veces el origen es un tercero.
+
+Ejemplo: una clínica ve su nombre en un foro con registros de pacientes. Si no tiene registros de acceso, no puede demostrar ni que hubo ni que no hubo incidente, y eso ya es un problema.
+
+En el artículo detallo el paso a paso y qué dice la LOPDP. ¿Su empresa tiene hoy un procedimiento para esto? Lo leo en comentarios.
+
+#LOPDP #Ciberseguridad #ProteccionDeDatos #Ecuador #RespuestaAIncidentes</description>
+    </item>
     <item>
       <title>Filtraciones en centros de contacto: la lección para empresas ecuatorianas que delegan datos de clientes</title>
       <link>https://protego-consulting.com/blog/filtracion-datos-centros-contacto-proveedores.html</link>

@@ -6,7 +6,29 @@
     <atom:link href="https://protego-consulting.com/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Artículos sobre LOPDP, ISO 27001, continuidad del negocio y ciberseguridad en Ecuador.</description>
     <language>es-EC</language>
-    <lastBuildDate>Tue, 17 Nov 2026 09:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 09:00:00 -0500</lastBuildDate>
+    <item>
+      <title>Delegado de Protección de Datos: ¿un nombre en el registro o una función que protege a su empresa?</title>
+      <link>https://protego-consulting.com/blog/delegado-proteccion-datos-nombre-o-funcion.html</link>
+      <guid isPermaLink="true">https://protego-consulting.com/blog/delegado-proteccion-datos-nombre-o-funcion.html</guid>
+      <pubDate>Tue, 24 Nov 2026 09:00:00 -0500</pubDate>
+      <category>LOPDP</category>
+      <description>¿Su empresa tiene un Delegado de Protección de Datos o solo tiene un nombre registrado?
+
+Muchas organizaciones cumplieron la designación con prisa. Pusieron al abogado interno, al jefe de sistemas o a alguien de talento humano, y el trámite quedó hecho.
+
+Lo que vemos después en los diagnósticos se repite: delegados que no saben que lo son, que no tienen horas asignadas o que supervisan las mismas decisiones que toman.
+
+Un ejemplo sencillo: un paciente pide saber con quién se compartieron sus resultados. La LOPDP da quince días para responder. Sin alguien que realmente cumpla la función, la solicitud rebota entre áreas hasta que vence el plazo.
+
+Un delegado eficaz no necesita un departamento. Necesita un mandato claro, tiempo real y estar en las decisiones antes de que se tomen, no después.
+
+En el artículo comparto cuándo es obligatorio designarlo, los cuatro síntomas de un delegado "de papel" y cinco preguntas para revisarlo antes de cerrar el año.
+
+¿Cómo lo resolvieron en su organización: interno, externo o mixto? Me interesa leer su experiencia.
+
+#LOPDP #ProteccionDeDatos #DPO #Ecuador #Cumplimiento</description>
+    </item>
     <item>
       <title>Ley de Ciberseguridad: vence el plazo de los reglamentos. Lo que su empresa puede preparar sin esperarlos</title>
       <link>https://protego-consulting.com/blog/ley-ciberseguridad-reglamentos-que-preparar.html</link>
